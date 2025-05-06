@@ -32,6 +32,8 @@ def main():
     
     player = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
     
+    # Game Loop
+    
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
