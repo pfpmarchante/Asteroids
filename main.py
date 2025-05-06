@@ -4,7 +4,7 @@ from player import Player
 from circleshape import CircleShape 
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
-from shot import Shot 
+from shot import Shot  
 
 
 def main():
@@ -37,10 +37,15 @@ def main():
             if event.type == pygame.QUIT:
                 return
             
-            
         updatable.update(dt)
+            
         
         for asteroid in asteroids:
+            for shot in shots:
+                if asteroid.is_colliding(shot):
+                    shot.kill()
+                    asteroid.split() 
+            
             if asteroid.is_colliding(player):
                 print("Game Over!")
                 pygame.quit()
